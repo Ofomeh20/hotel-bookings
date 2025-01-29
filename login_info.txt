@@ -2,4 +2,7 @@
 username:Bashir
 email:bsbsb@gmail.com
 password:1567
+ username:victor
+email:joyofomeh@gmail.com
+password:ololade
  
