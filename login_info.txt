@@ -1,6 +1,3 @@
 username:Bashir email:bsbsb@gmail.com password:1567
 username:bash email:athekamebash@gmail.com password:12345
 username:basher email:fdfdfdf@gmail.com password:wwww
-username:paul email:volta@gmail.com password:nnnn
-username:bash email:athekamebash@gmail.com password:gjjjjjjj
-username:bash email:athekamebash@gmail.com password:jykjkg

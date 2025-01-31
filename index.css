@@ -1,3 +1,80 @@
 * {
   font-family: sans-serif;
+margin:0;
+padding:0;
+box-sizing: border-box;
+}
+.rounded-pill{
+  width:70px
+}
+
+  /* ROOM CARD*/
+ .course-section {
+     width: 90%;
+     max-width: 1200px;
+     margin: 20px;
+ }
+.course-category h2 span {
+  color: #f8af20;
+}
+.room-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.room-card {
+  width: 260px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.room-card:hover {
+  transform: translateY(-10px);
+}
+
+.room-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.red {
+  background-color: #ff5b5b;
+}
+
+.pink {
+  background-color: #ff73a3;
+}
+
+.yellow {
+  background-color: #f8af20;
+}
+
+.blue {
+  background-color: #1a8cc7;
+}
+.room-card h3 {
+  font-size: 18px;
+  margin: 15px 0;
+  color: #333;
+}
+.room-card h4{
+  font-size:10px ;
+  color:#105a84
+}
+.register-btn {
+  background-color: #1a8cc7;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+.register-btn:hover {
+  background-color: #105a84;
 }
