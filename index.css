@@ -1,19 +1,19 @@
 * {
   font-family: sans-serif;
-margin:0;
-padding:0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.rounded-pill{
-  width:70px
+.rounded-pill {
+  width: 70px;
 }
 
-  /* ROOM CARD*/
- .course-section {
-     width: 90%;
-     max-width: 1200px;
-     margin: 20px;
- }
+/* ROOM CARD*/
+.course-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px;
+}
 .course-category h2 span {
   color: #f8af20;
 }
@@ -60,9 +60,9 @@ box-sizing: border-box;
   margin: 15px 0;
   color: #333;
 }
-.room-card h4{
-  font-size:10px ;
-  color:#105a84
+.room-card h4 {
+  font-size: 10px;
+  color: #105a84;
 }
 .register-btn {
   background-color: #1a8cc7;
