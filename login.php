@@ -1,9 +1,11 @@
 <?php
 
 session_start();
-$_SESSION[ 'booked' ] = 'Unbooked';
 $_SESSION[ 'user_info_file' ] = 'login_info.txt';
 $_SESSION[ 'login_error_message' ] = null;
+if(isset($_SESSION['user_id'])){
+    unset($_SESSION['user_id']);
+}
 
 if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
     $password = $_POST[ 'password' ];
@@ -15,6 +17,9 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
     $linenum =  sizeof( $file );
     while ( $linenum > 0 ) {
         if ( strpos( $file[ $line ], $password ) !== false && strpos( $file[ $line ], $email ) !== false ) {
+            $userInfo = explode(" ", $file[$line]);
+            $userId = explode(":", $userInfo[0]);
+            $_SESSION["user_id"] = $userId[1];
             header( 'Location: hotel.php' );
         } else {
             $_SESSION[ 'login_error_message' ] = 'Incorrect email or password';
