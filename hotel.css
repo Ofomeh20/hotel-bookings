@@ -143,3 +143,24 @@ body {
         background-repeat: no-repeat;
         background-attachment: fixed;
       }
+
+       /*   ROOms */
+       body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  border: 2px solid #000;
+  padding: 20px;
+  transition: border-color 0.3s;
+}
+
+.container:hover {
+  border-color: #007BFF;
+}

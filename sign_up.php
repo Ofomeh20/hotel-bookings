@@ -1,9 +1,11 @@
 <?php
 
 session_start();
-$_SESSION[ "user_info_file" ] = "login_info.txt";
-$_SESSION[ "logged_in" ] = false;
 $_SESSION[ "signup_error_message" ] = null;
+$_SESSION[ "user_info_file" ] = "login_info.txt";
+if(isset($_SESSION['user_id'])){
+    unset($_SESSION['user_id']);
+}
 
 if ( $_SERVER[ "REQUEST_METHOD" ] === "POST" ) {
     $username = $_POST[ "user_name" ];
@@ -11,25 +13,32 @@ if ( $_SERVER[ "REQUEST_METHOD" ] === "POST" ) {
     $email = $_POST[ "email" ];
 
     $file = file( $_SESSION[ "user_info_file" ] );
+    $accountExists = false;
 
     $line = 0;
     $linenum =  sizeof( $file );
-    while ( $linenum > 0 ) {
-        if ( strpos( $file[ $line ], $password ) !== true && strpos( $file[ $line ], $email ) !== true && strpos( $file[ $line ], $username ) !== true ) {
+    while ($line < $linenum) {
+        if (strpos( $file[ $line ], $email ) !== false && strpos( $file[ $line ], $username ) !== false ) {
             $_SESSION[ "signup_error_message" ] = "Account already exists";
-            break;
-        } else {
-            header( "Location: hotel.php" );
-            $file = fopen( $_SESSION[ "user_info_file" ], mode:"a" );
-            fwrite( $file, data: "username:" . $username . " " );
-            fwrite( $file, data: "email:" . $email . " " );
-            fwrite( $file, data: "password:" . $password . "\n" );
-            fclose( $file );
+            $accountExists = true;
             break;
         }
         $line++;
-        $linenum--;
     }
+        if (!$accountExists) {
+            $filew = fopen( $_SESSION[ "user_info_file" ], "a" );
+            fwrite( $filew, data: "username:" . $username . " " );
+            fwrite( $filew, data: "email:" . $email . " " );
+            fwrite( $filew, data: "password:" . $password . "\n" );
+            fclose( $filew );
+            $file = file( $_SESSION[ "user_info_file" ] );
+            
+            $userInfo = explode(" ", $file[$line]);
+            $userId = explode(":", $userInfo[0]);
+            $_SESSION["user_id"] = $userId[1];
+            header( "Location: hotel.php" );
+            exit();
+        }
 
 }
 
