@@ -124,7 +124,19 @@
               <h4>Our guest requires <br>a well
                 rest sleep here <br>at de luna we <br>
                 provide the best .</h4>
-              <button class="register-btn">BOOk NOW</button>
+              <?php
+                
+                if (isset($_SESSION["Room 1"])) {
+                    if ($_SESSION["Room 1"] === "booked") {
+                        echo "<button class='register-btn'>Cancel booking</button>";
+                    } else {
+                        echo "<a href='book.php'><button class='register-btn'>BOOK NOW </button></a>";
+                    }
+                } else {
+                    echo "<a href='book.php'><button class='register-btn'>BOOK NOW </button></a>";
+                }
+            
+            ?>
 
             </div>
             <div class="room-cards row">
@@ -134,7 +146,19 @@
                 <h4> Guest are able to cool <br>themselves,
                   thanks to our pool and servies .<br> we love and care
                   for our guests </h4>
-                <button class="register-btn">BOOK NOW</button>
+                <?php
+                
+                if (isset($_SESSION["Room 2"])) {
+                    if ($_SESSION["Room 2"] === "booked") {
+                        echo "<button class='register-btn'>Cancel booking</button>";
+                    } else {
+                        echo "<a href='book.php'><button class='register-btn'>BOOK NOW </button></a>";
+                    }
+                } else {
+                    echo "<a href='book.php'><button class='register-btn'>BOOK NOW </button></a>";
+                }
+            
+            ?>
               </div>
             </div>
             <div class="rooms-cards col">
@@ -145,7 +169,24 @@
                   wants to stay one night
                   <br> in our facilty
                 </h4>
-                <button class="register-btn">BOOK NOW </button>
+
+                <!--Determines whether the room has been booked or not-->
+                <?php
+                
+                    if (isset($_SESSION["Room 3"])) {
+                        if ($_SESSION["Room 3"] === "booked") {
+                            echo "<button class='register-btn'>Cancel booking</button>";
+                        } else {
+                            echo "<a href='book.php'><button class='register-btn'>BOOK NOW </button></a>";
+                        }
+                    } else {
+                        echo "<a href='book.php'><button class='register-btn'>BOOK NOW </button></a>";
+                    }
+                
+                ?>
+
+
+
               </div>
             </div>
             <div class="rooms-cards col">
@@ -155,11 +196,30 @@
                 <h4>Our equistic taste of welcoming people <br>
                   with a well interory decoration <br>
                   and spaceous view </h4>
-                <button class="register-btn"> BOOK N0W</button>
+                <?php
+                
+                if (isset($_SESSION["Room 4"])) {
+                    if ($_SESSION["Room 4"] === "booked") {
+                        echo "<button class='register-btn'>Cancel booking</button>";
+                    } else {
+                        echo "<a href='book.php'><button class='register-btn'>BOOK NOW </button></a>";
+                    }
+                } else {
+                    echo "<a href='book.php'><button class='register-btn'>BOOK NOW </button></a>";
+                }
+            
+            ?>
               </div>
             </div>
 
           </div>
+
+
+          <button class="btn btn-dark col-11 row mx-auto my-5 py-3 fs-5">
+            <a href="book.php" class="nav-link">
+              Book rooms now
+            </a>
+          </button>
 </body>
 
 <script src="script.js"></script>

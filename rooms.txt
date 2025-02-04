@@ -1,15 +1,2 @@
-room has been Unbooked
-room has been Booked
-room has been Unbooked
-room has been Booked
-room has been Unbooked
-room has been Booked
-room has been Booked
-room has been Unbooked
-room has been Booked
-room has been Unbooked
-room has been Booked
-room has been Unbooked
-room has been Booked
-room has been Unbooked
-room has been Booked
+Room 3 has been booked
+Room 1 has been booked
