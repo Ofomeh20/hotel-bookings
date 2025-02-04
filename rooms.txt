@@ -1,2 +1,2 @@
 Room 3 has been booked
-Room 1 has been booked
+Room 2 has been booked

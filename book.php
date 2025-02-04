@@ -2,6 +2,7 @@
 
 session_start();
 $_SESSION["booking_message"] = null;
+$_SESSION["booked_message"] = null;
 $roomLog = "rooms.txt";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         fwrite( $filew,  "\n" . $hasBeenBooked);
         fclose( $filew );
         $_SESSION[$roomType] = "booked";
+        $_SESSION["booked_message"] = "Booked successfully";
       } elseif ($unbookedPosition < $bookedPosition) {
         $_SESSION["booking_message"] = "Room has already been booked!";
       }
@@ -48,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       fwrite( $filew, "\n" . $hasBeenBooked );
       fclose( $filew );
       $_SESSION[$roomType] = "booked";
+      $_SESSION["booked_message"] = "Booked successfully";
     }
 }
 }
@@ -62,6 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hotel Booking Form</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="bootstrap.css" />
+  <link rel="stylesheet" href="bootstrap.min.css" />
 </head>
 
 <body>
@@ -73,7 +79,15 @@ if ( isset( $_SESSION[ 'booking_message' ] ) ) {
     echo '<div class="alert alert-warning mx-auto col-11 col-md-10 col-lg-8">'. $_SESSION[ 'booking_message' ] .'</div>';
     unset( $_SESSION[ 'booking_message' ] );
 }
+
+if ( isset( $_SESSION[ 'booked_message' ] ) ) {
+    echo '<div class="alert alert-success mx-auto col-11 col-md-10 col-lg-8">'. $_SESSION[ 'booked_message' ] .'</div>';
+    unset( $_SESSION[ 'booked_message' ] );
+}
+
+
 ?>
+
 
     <form id="bookingForm" method="POST">
       <div class="form-group">
